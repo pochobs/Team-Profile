@@ -1,5 +1,5 @@
 const Employee = require("../lib/Employee");
-const { TestScheduler } = require("jest");
+
 test('make sure name is a string', () => {
     const employee = new Employee('Alfonso')
     expect(employee.name).toEqual(expect.any(String));
