@@ -13,7 +13,7 @@ const template = require("./src/page-template.js");
 const teamMembers = [];
 const idArray = [];
 const isEmail = /\S+@\S+\.\S+/;
-const isOfficeNum = /^[1-9]\d*$/;
+const isNum = /^[1-9]\d*$/;
 
 function createTeam() {
 
@@ -37,7 +37,7 @@ function createTeam() {
         message: "What is the team manager's id?",
         validate: answer => {
           const pass = answer.match(
-            isOfficeNum
+            isNum
           );
           if (pass) {
             return true;
@@ -65,7 +65,7 @@ function createTeam() {
         message: "What is the team manager's office number?",
         validate: answer => {
           const pass = answer.match(
-            isOfficeNum
+            isNum
           );
           if (pass) {
             return true;
@@ -127,7 +127,7 @@ function createTeam() {
         message: "What is your engineer's id? (Required)",
         validate: answer => {
           const pass = answer.match(
-            isOfficeNum
+            isNum
           );
           if (pass) {
             if (idArray.includes(answer)) {
@@ -192,7 +192,7 @@ function createTeam() {
         message: "What is your intern's id? (Required)",
         validate: answer => {
           const pass = answer.match(
-            isOfficeNum
+            isNum
           );
           if (pass) {
             if (idArray.includes(answer)) {
@@ -242,7 +242,7 @@ function createTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
       }
-      fs.writeFileSync(outputPath, template(teamMembers), "utf-8");
+      fs.writeFileSync('./dist/index.html', template(teamMembers), "utf-8");
     }
   
     createManager();
