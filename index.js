@@ -5,8 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output")
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+
 
 const template = require("./src/page-template.js");
 
@@ -239,9 +238,7 @@ function createTeam() {
   }
 
   function buildTeam() {
-    if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR)
-      }
+    
       fs.writeFileSync('./dist/index.html', template(teamMembers), "utf-8");
     }
   
